@@ -1,0 +1,103 @@
+* {
+  margin: 0;
+  padding: 0;
+  color: antiquewhite;
+}
+html {
+  height: 100%;
+}
+body {
+  height: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url(https://i.etsystatic.com/19041287/r/il/748977/2776586853/il_570xN.2776586853_q0a3.jpg);
+  background-size: cover;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.greeting h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 5rem;
+  text-align: center;
+  text-shadow: 2px 10px 9px #ffd000;
+}
+.wishes_table {
+  perspective: 1000px;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 240px);
+  justify-items: space-evenly;
+  align-items: center;
+  gap: 3rem;
+}
+.odd img,
+.even img {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 56%;
+}
+.odd,
+.even {
+  transition: transform 1500ms;
+  transform-style: preserve-3d;
+  color: black;
+  height: 200px;
+}
+.even:hover,
+.odd:hover {
+    cursor: pointer;
+  transform: rotateY(-180deg);
+}
+
+.even:hover img, .odd:hover img{
+    animation-name: hideImage;
+    animation-timing-function:ease-in-out ;
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+}
+
+
+@keyframes hideImage {
+    from{
+        opacity:1;
+    }
+    to{
+        opacity: 0;
+    }
+}
+.even .front-card,
+.even .back-card {
+  position: absolute;
+  backface-visibility: hidden;
+  background-color: rgb(219, 1, 1);
+}
+.front-card,
+.back-card {
+  height: 100%;
+  width: 100%;
+  border-radius: 15%;
+}
+.odd .front-card,
+.odd .back-card {
+  position: absolute;
+  backface-visibility: hidden;
+  background-color: rgb(24, 146, 0);
+}
+.odd .back-card,
+.even .back-card {
+  background: rgb(231, 200, 160);
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  font-family: "Playfair Display", serif;
+  transform: rotateY(180deg);
+}
+
+
+.wishes_table p {
+  color: black;
+  font: italic;
+}
